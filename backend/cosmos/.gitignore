@@ -1,1 +1,29 @@
 .env
+# Python related
+*.pyc
+*.pyo
+*.egg-info/
+__pycache__/
+
+# Django specific
+*.log
+*.pot
+*.db
+*.sqlite3
+
+# Development environment
+*.env
+*.venv
+*.venv/
+venv/
+env/
+ENV/
+
+# IDEs and text editors
+*.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+*.swp
+
