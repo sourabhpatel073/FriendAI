@@ -4,36 +4,45 @@ from django.db import models
 from django.conf import settings
 
 # User Model
-class User(models.Model):
-    username = models.CharField(max_length=100, unique=True)
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class User(AbstractUser):
     email = models.EmailField(unique=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True) # Optional field
     join_date = models.DateTimeField(auto_now_add=True)
 
 # Chat Model
 class Chat(models.Model):
-    participants = models.ManyToManyField(User, related_name='chats')
-    timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chats')
+    timestamp = models.DateTimeField(auto_now_add=True) # Represents the initiation of the chat
+
 
 # Message Model
 class Message(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
+    SYSTEM = 'SYSTEM'
+    USER = 'USER'
+    SENDER_CHOICES = [
+        (SYSTEM, 'System'),
+        (USER, 'User')
+    ]
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE, related_name='messages')
+    sender_type = models.CharField(max_length=6, choices=SENDER_CHOICES, default=USER) # To distinguish between system and user messages
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    attachment = models.FileField(upload_to='pdf_attachments/', null=True, blank=True)
+    attachments = models.ForeignKey('PDFDocument', null=True, blank=True, on_delete=models.SET_NULL) # Optional field
+
 
 # PDF Document Model
 class PDFDocument(models.Model):
     title = models.CharField(max_length=255)
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='uploaded_documents')
     upload_date = models.DateTimeField(auto_now_add=True)
-    embedding = models.TextField()  # This will hold the semantic embedding, which you'll generate externally.
+    content = models.TextField(null=True, blank=True) # This can store the extracted text content from the PDF if needed
+    embedding = models.TextField() # Will store the generated semantic embedding of the document
 
-# User History Model
-# This is a bit complex since it needs to track both messages and PDFs. 
-# For simplicity, we'll represent them as text logs.
+
 class UserHistory(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='history')
-    log = models.TextField()  # A textual representation of the action, like "Sent a message" or "Uploaded a PDF".
-    timestamp = models.DateTimeField(auto_now_add=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='history')
+    messages = models.ManyToManyField(Message, blank=True) # Messages sent/received by the user
+    uploaded_pdfs = models.ManyToManyField(PDFDocument, blank=True) # PDFs uploaded by the user
