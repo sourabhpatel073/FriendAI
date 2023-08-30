@@ -3,27 +3,28 @@ from . import views
 
 urlpatterns = [
     # User Profile URLs
-    path('create_user/', views.create_user, name='create_user'),
-    path('read_user/', views.read_user, name='read_user'),
-    path('update_user/', views.update_user, name='update_user'),
-    path('delete_user/', views.delete_user, name='delete_user'),
+    path('user_register/', views.register_user, name='register_user'),
+    path('user_login/', views.login_user, name='login_user'),
+    path('user/profile/', views.user_profile, name='user_profile'),
+    path('user/edit/', views.edit_user_profile, name='edit_user_profile'),
+    path('user/delete/', views.delete_user_profile, name='delete_user_profile'),
 
     # Chat URLs
-    path('start_chat/', views.start_chat, name='start_chat'),
-    path('view_chat/<int:chat_id>/', views.view_chat, name='view_chat'),
-    path('delete_chat/<int:chat_id>/', views.delete_chat, name='delete_chat'),
+    # path('chats/start/', views.start_chat, name='start_chat'),
+    # path('chats/<int:chat_id>/', views.view_chat, name='view_chat'),
+    # path('chats/<int:chat_id>/delete/', views.delete_chat, name='delete_chat'),
 
-    # Message URLs
-    path('send_message/<int:chat_id>/', views.send_message, name='send_message'),
-    path('view_message/<int:message_id>/', views.view_message, name='view_message'),
-    path('delete_message/<int:message_id>/', views.delete_message, name='delete_message'),
+    # # Message URLs
+    # path('chats/<int:chat_id>/send_message/', views.send_message, name='send_message'),
+    # path('messages/<int:message_id>/', views.view_message, name='view_message'),
+    # path('messages/<int:message_id>/delete/', views.delete_message, name='delete_message'),
 
-    # PDF Document URLs
-    path('upload_pdf/', views.upload_pdf, name='upload_pdf'),
-    path('view_pdf/<int:pdf_id>/', views.view_pdf, name='view_pdf'),
-    path('process_pdf/<int:pdf_id>/', views.process_pdf, name='process_pdf'),
-    path('delete_pdf/<int:pdf_id>/', views.delete_pdf, name='delete_pdf'),
+    # # PDF Document URLs
+    # path('pdf/upload/', views.upload_pdf, name='upload_pdf'),
+    # path('pdf/<int:pdf_id>/', views.view_pdf, name='view_pdf'),
+    # path('pdf/<int:pdf_id>/process/', views.process_pdf, name='process_pdf'),
+    # path('pdf/<int:pdf_id>/delete/', views.delete_pdf, name='delete_pdf'),
 
-    # User History URLs
-    path('view_history/', views.view_history, name='view_history')
+    # # User History URLs
+    # path('user/history/', views.view_history, name='view_history')
 ]
