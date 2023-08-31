@@ -1,0 +1,75 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.container {
+    padding: 2rem;
+    background-color: rgba(63, 33, 33, 0.237);
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column; /* default to column layout for mobile */
+    justify-content: space-between;
+}
+
+.pdf-section, .chat-section {
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.pdf-section {
+    margin-bottom: 2rem; /* Add space between sections for mobile */
+}
+
+.chat-container {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: #e1f5fe;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack input and button on top of each other for mobile */
+    gap: 1rem;
+}
+
+#Upload{
+    margin-top: 20px;
+}
+
+/* Media Query for Tablets and Desktops */
+@media (min-width: 768px) {
+    .flex-container {
+        flex-direction: row; /* Switch to row layout for larger screens */
+    }
+
+    .pdf-section {
+        flex: 25%;
+        margin-right: 2rem;
+        margin-bottom: 0; /* Remove the bottom margin for larger screens */
+    }
+
+    .chat-section {
+        flex: 75%;
+    }
+
+    .input-group {
+        flex-direction: row; /* Put input and button side by side for larger screens */
+    }
+}

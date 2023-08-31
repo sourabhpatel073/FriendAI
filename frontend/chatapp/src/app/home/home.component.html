@@ -1,1 +1,55 @@
-<p>home works!</p>
+<div class="container">
+
+    <!-- Two Section Layout using Flex -->
+    <div class="flex-container">
+
+        <!-- Left Section for PDF Upload -->
+        <div class="pdf-section mat-elevation-z4">
+            <h2>Upload PDFs</h2>
+            
+            <!-- File Input -->
+            <div class="file-upload-btn">
+                <button mat-raised-button color="primary" (click)="fileInput.click()">Choose Files</button>
+                <input type="file" id="pdfs" #fileInput (change)="onFileChange($event)" multiple accept=".pdf" style="display:none;">
+            </div>
+            
+            
+            <button mat-raised-button color="primary" (click)="uploadPDFs()" id="Upload">Upload</button>
+
+            <!-- Display list of selected PDFs -->
+            <div *ngIf="selectedPDFs.length > 0">
+                <h5>Selected PDFs:</h5>
+                <mat-list>
+                    <mat-list-item *ngFor="let pdf of selectedPDFs">
+                        {{ pdf.name }}
+                        <button mat-icon-button color="warn" (click)="removeSelectedPDF(pdf)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-list-item>
+                </mat-list>
+                <button mat-raised-button color="accent" (click)="processPDFs()">Get summary</button>
+            </div>
+        </div>
+
+        <!-- Right Section for Chat -->
+        <div class="chat-section mat-elevation-z4">
+            <!-- Chat Messages -->
+            <div class="chat-container">
+                <div *ngFor="let chat of chatHistory" 
+                     [ngClass]="{'user-message': chat.sender === 'user', 'bot-message': chat.sender === 'bot'}">
+                    <strong>{{ chat.sender === 'user' ? 'You' : 'Mr. I' }}:</strong> {{ chat.message }}
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="input-group">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Ask a question...</mat-label>
+                    <input matInput type="text" [(ngModel)]="userInput">
+                </mat-form-field>
+                <button mat-raised-button type="button" color="primary" (click)="askChatbot(userInput)">Ask</button>
+            </div>
+        </div>
+
+    </div>
+</div>
