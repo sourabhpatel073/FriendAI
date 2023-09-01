@@ -1,0 +1,42 @@
+.profile-container {
+    display: flex;
+    align-items: center;
+    background: #f7f7f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .avatar-section {
+    flex: 0 0 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff;
+  }
+  
+  .details-section {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .username {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .join-date {
+    color: #777;
+    font-size: 1rem;
+  }
+  

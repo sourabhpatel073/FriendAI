@@ -23,19 +23,24 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ChatHistoryListComponent } from './chat-history-list/chat-history-list.component';
 import { ChatDetailsComponent } from './chat-details/chat-details.component';
 import { ChatDataService } from './chat-data.service';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
-   ChatHistoryListComponent,
+    ChatHistoryListComponent,
     ProfileComponent,
     NavbarComponent,
     LoadingDialogComponent,
     ChatHistoryListComponent,
     ChatDetailsComponent,
-    ChatDetailsComponent
+    ChatDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,7 @@ import { ChatDataService } from './chat-data.service';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatToolbarModule,
+    MatSidenavModule
   ],
   providers: [ChatDataService],
   bootstrap: [AppComponent]

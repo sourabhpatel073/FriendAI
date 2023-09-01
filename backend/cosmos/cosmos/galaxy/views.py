@@ -13,6 +13,13 @@ from django.contrib.auth.hashers import check_password
 from django.views.decorators.csrf import csrf_exempt
 
 
+from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializers import UserSerializer
+
+
+
 
 # ========================================================================chathistory===============================================
 
@@ -116,25 +123,6 @@ def register_user(request):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# @api_view(['POST'])
-# def login_user(request):
-#     username = request.data.get("username")
-#     password = request.data.get("password")
-
-#     try:
-#         user = User.objects.get(username=username)
-#     except User.DoesNotExist:
-#         return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
-
-#     # Check if the provided password matches the one stored in the database
-#     if check_password(password, user.password):
-#         jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
-#         jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
-#         payload = jwt_payload_handler(user)
-#         token = jwt_encode_handler(payload)
-#         return Response({"token": token})
-#     else:
-#         return Response({"error": "Invalid credentials"}, status=status.HTTP_400_BAD_REQUEST)
 
 
 
@@ -148,10 +136,11 @@ def login_user(request):
         # Checking if the email exists in the database
         user_profile = UserProfile.objects.get(user__email=email)
         user_id = user_profile.user.id
+        username=user_profile.username
         if user_profile:
             # Return a success response if the email exists
             
-            return JsonResponse({"message": "Email found in database!","token":101, "user_id": user_id}, status=200)
+            return JsonResponse({"message": "Email found in database!","token":101, "user_id": user_id,"user":username}, status=200)
         else:
             # Return a failure response if the email does not exist
             return JsonResponse({"message": "Email not found!"}, status=404)
@@ -161,6 +150,17 @@ def login_user(request):
     except Exception as e:
         # Return a failure response if any exception occurs
         return JsonResponse({"message": f"An error occurred: {str(e)}"}, status=500)
+    
+
+@api_view(['GET'])
+def get_profile(request, user_id):
+    try:
+        user = User.objects.get(User, id=user_id)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+    
+    except User.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
     
 @api_view(['PUT'])
 def edit_user_profile(request):
@@ -182,6 +182,13 @@ def delete_user_profile(request):
         return Response(status=status.HTTP_204_NO_CONTENT)
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def get_all_users(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
 
 # ... [rest of your views]
 

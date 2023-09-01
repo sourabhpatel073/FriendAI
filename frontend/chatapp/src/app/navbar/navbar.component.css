@@ -30,6 +30,42 @@
     color: #ddd;
 }
 
-.spacer{
-    padding-right: 60%;
+
+.sidenav-container {
+    height: 10%;
+    overflow: hidden;
+}
+
+.sidenav {
+    width: 250px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+/* This ensures the sidenav stays open on larger screens and acts like a dropdown on smaller screens */
+@media (min-width: 600px) {
+   
+}
+
+mat-sidenav {
+    width: 250px;  /* you can set this to whatever width you like */
+    box-shadow: 3px 0px 7px rgba(0, 0, 0, 0.3); /* Adding a simple shadow to make it pop */
+}
+
+mat-sidenav button {
+    display: block;
+    width: 100%;
+    text-align: left;
 }

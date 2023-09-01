@@ -1,6 +1,20 @@
-<div *ngFor="let chat of chatHistories">
-    <h3>{{ chat.date_of_post }}</h3>
-    <p>{{ chat.data | slice:0:50 }}...</p>  <!-- Display a snippet of the chat -->
-    <a [routerLink]="['/chat-details', chat.id]">View Details</a>
+<div *ngIf="selectedChat" class="overlay">
+  <div class="detail-view">
+    <h3>Details for User ID: {{ selectedChat.user_id }}</h3>
+    <div *ngFor="let message of selectedChat.messages" 
+         class="message" [ngClass]="message.sender">
+      {{ message.message }}
+    </div>
+    <p>PDF Size: {{ selectedChat.pdfsize }} bytes</p>
+    <button (click)="closeDetails()">Close</button>
   </div>
-  
+</div>
+
+<div class="card-container">
+  <div *ngFor="let chat of chatHistories" class="card" (click)="showDetails(chat)">
+    <h3>{{ chat.pdfname }}</h3>
+    <h4>{{ chat.date_of_post | date:'MMMM dd, y' }}</h4>
+    <p>{{ chat.date_of_post | date:'HH:mm' }}</p>
+    <button (click)="deleteChat(chat.id)">Delete</button>
+  </div>
+</div>

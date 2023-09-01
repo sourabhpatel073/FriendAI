@@ -1,1 +1,13 @@
-<p>profile works!</p>
+<h2> Your Profile</h2>
+<div class="profile-container">
+    <div class="avatar-section">
+      <img class="avatar" src="path/to/dummy-image.jpg" alt="Profile Image">
+    </div>
+    
+    <div class="details-section">
+      <h2 class="username">{{ usernameFromLocalStorage }}</h2>
+      <p class="join-date">Joined on: {{ userData.userprofile.join_date | date:'MMMM dd, y' }}</p>
+    </div>
+  </div>
+  
+  

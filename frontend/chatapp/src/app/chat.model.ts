@@ -12,7 +12,6 @@ export interface Message {
         sender: string;
     }[];
     date_of_post: string;
-    data: string;
     pdfsize: number;
     pdfname: string;
 }
