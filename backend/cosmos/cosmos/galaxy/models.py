@@ -6,6 +6,19 @@ class UserProfile(models.Model):
     profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
     join_date = models.DateTimeField(auto_now_add=True)
 
+
+from django.db import models
+
+class UserChatHistory(models.Model):
+    user_id = models.CharField(max_length=255)
+    messages = models.JSONField()
+    date_of_post = models.DateTimeField(auto_now_add=True)
+    # data = models.TextField()  # For storing the mentioned data point
+    pdfsize = models.PositiveIntegerField()  # For storing the size of the PDF
+    pdfname = models.CharField(max_length=255)  # For storing the name of the PDF
+
+
+
 class Chat(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chats')
     timestamp = models.DateTimeField(auto_now_add=True)

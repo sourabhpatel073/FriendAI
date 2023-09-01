@@ -1,12 +1,22 @@
-from django.db import models
 from django.contrib.auth.models import User
-from .models import Chat, Message, PDFDocument, UserHistory, UserProfile
+from.models import Chat, Message, PDFDocument,UserHistory,UserProfile
 from rest_framework import serializers
+
+
+
+from .models import UserChatHistory
+
+class UserChatHistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserChatHistory
+        fields = '__all__'
+
+
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ['profile_picture', 'join_date']
+        fields = [ 'join_date']
 
 class UserSerializer(serializers.ModelSerializer):
     userprofile = UserProfileSerializer()
@@ -24,19 +34,20 @@ class UserSerializer(serializers.ModelSerializer):
 class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
-        fields = ['id', 'user', 'timestamp']
+        fields = ['id', 'participants', 'timestamp']
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ['id', 'chat', 'sender_type', 'content', 'timestamp', 'attachments']
+        fields = ['id', 'sender', 'content', 'timestamp', 'attachments']
 
 class PDFDocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = PDFDocument
-        fields = ['id', 'title', 'uploaded_by', 'upload_date', 'content', 'embedding']
+        fields = ['id', 'title', 'uploaded_by', 'upload_date', 'embedding']
+
 
 class UserHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = UserHistory
-        fields = ['id', 'user', 'messages', 'uploaded_pdfs']
+        fields = ['id', 'user', 'action', 'timestamp']

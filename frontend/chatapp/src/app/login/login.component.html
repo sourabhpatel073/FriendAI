@@ -1,31 +1,35 @@
-<div class="container">
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div id="main">
   
-        <div>
-          <label for="email">Email:</label>
-          <input type="text" id="email" formControlName="email" required>
-          <!-- Display error message if email is not valid -->
-          <div *ngIf="loginForm?.get('email')?.invalid && loginForm?.get('email')?.touched">
-            Invalid email.
-          </div>
-          
+ <div class="container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" required>
+        <!-- Display error message if email is not valid -->
+        <div *ngIf="loginForm?.get('email')?.invalid && loginForm?.get('email')?.touched">
+          Invalid email.
         </div>
         
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" formControlName="password" required>
-          <!-- Display error message if password is not valid -->
-          <div *ngIf="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched">
-            Password required.
-          </div>
-          
-        </div>
-        
-        <button type="submit" [disabled]="!loginForm.valid">Login</button>
-        
-      </form>
+      </div>
       
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" required>
+        <!-- Display error message if password is not valid -->
+        <div *ngIf="loginForm?.get('password')?.invalid && loginForm?.get('password')?.touched">
+          Password required.
+        </div>
+        
+      </div>
+      
+      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      
+    </form>
+    
+ </div>
+
+
+
 </div>
-
-

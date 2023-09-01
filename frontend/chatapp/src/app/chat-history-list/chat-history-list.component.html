@@ -1,0 +1,6 @@
+<div *ngFor="let chat of chatHistories">
+    <h3>{{ chat.date_of_post }}</h3>
+    <p>{{ chat.data | slice:0:50 }}...</p>  <!-- Display a snippet of the chat -->
+    <a [routerLink]="['/chat-details', chat.id]">View Details</a>
+  </div>
+  

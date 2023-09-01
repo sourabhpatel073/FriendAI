@@ -1,0 +1,9 @@
+.loading-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  mat-spinner{
+    width: 50%;
+  }

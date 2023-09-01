@@ -2,9 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+interface LoginResponse {
+  user_id: number;
+  token: number;
+  message: string;
+  [key: string]: any;  // This line allows the object to have other properties as well
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   private _isUserAuthenticated = new BehaviorSubject<boolean>(false);
@@ -31,9 +40,11 @@ export class AuthService {
     const url = 'http://localhost:8000/galaxy/user_login/';
     const body = { email, password };
 
-    this.http.post(url, body).subscribe(response => {
+    this.http.post<LoginResponse>(url, body).subscribe(response => {
       // Handle successful login, for instance by storing a token and setting user authentication status
       console.log(response)
+      localStorage.setItem('userId', response['user_id'].toString());
+        localStorage.setItem('token', response['token'].toString());
       this._isUserAuthenticated.next(true);
       this.router.navigate(['/home'])
     }, error => {

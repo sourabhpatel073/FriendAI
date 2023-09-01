@@ -1,11 +1,17 @@
 /* Container Styles */
+#main{
+    height: 100%;
+    padding-top: 3%;
+    background-image: url(https://media.istockphoto.com/id/1436950991/photo/cyber-security-authentication-online-safety-concept.webp?b=1&s=170667a&w=0&k=20&c=eMQbEHwi45JD_yA6jd0b4lLTz9y0Dj6Ejn9cxAyoonA=);
+}
+
 .container {
     max-width: 400px;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #3568cd9c;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
@@ -27,7 +33,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 /* Error Message Styles */
 div > div {
-    color: red;
+    color: rgb(243, 238, 238);
     margin-bottom: 1rem;
     font-size: 0.875rem;
 }

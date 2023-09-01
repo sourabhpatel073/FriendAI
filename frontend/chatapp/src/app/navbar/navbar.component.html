@@ -1,15 +1,8 @@
-
-<nav class="navbar">
-    <a class="navbar-brand" href="/">MyApp</a>
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/signup">Signup</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/home">Home</a>
-        </li>
-    </ul>
-</nav>
+<mat-toolbar color="primary">
+  <a routerLink="/home" class="logo"><img width="100px" style="border-radius: 50px;" src="data:image/png;base64,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"></a>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/login">Login</button>
+  <button mat-button routerLink="/signup">Signup</button>
+  <button mat-button routerLink='chats'>History</button>
+  <button mat-button routerLink="/profile">Profile</button>
+</mat-toolbar>

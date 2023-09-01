@@ -10,11 +10,11 @@
             <!-- File Input -->
             <div class="file-upload-btn">
                 <button mat-raised-button color="primary" (click)="fileInput.click()">Choose Files</button>
-                <input type="file" id="pdfs" #fileInput (change)="onFileChange($event)" multiple accept=".pdf" style="display:none;">
+                <input type="file" id="pdfs" #fileInput (change)="onFileChange($event)" multiple accept=".pdf" style="display:none;" multiple accept=".pdf">
             </div>
             
             
-            <button mat-raised-button color="primary" (click)="uploadPDFs()" id="Upload">Upload</button>
+            
 
             <!-- Display list of selected PDFs -->
             <div *ngIf="selectedPDFs.length > 0">
@@ -27,13 +27,17 @@
                         </button>
                     </mat-list-item>
                 </mat-list>
-                <button mat-raised-button color="accent" (click)="processPDFs()">Get summary</button>
+                
             </div>
+            <button mat-raised-button color="primary" *ngIf="selectedPDFs.length > 0" (click)="uploadPDFs()" id="Upload">GetSummary</button>
         </div>
 
         <!-- Right Section for Chat -->
+        
         <div class="chat-section mat-elevation-z4">
             <!-- Chat Messages -->
+           
+
             <div class="chat-container">
                 <div *ngFor="let chat of chatHistory" 
                      [ngClass]="{'user-message': chat.sender === 'user', 'bot-message': chat.sender === 'bot'}">
@@ -45,9 +49,10 @@
             <div class="input-group">
                 <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Ask a question...</mat-label>
-                    <input matInput type="text" [(ngModel)]="userInput">
+                    <input matInput type="text" [(ngModel)]="userInput" >
                 </mat-form-field>
                 <button mat-raised-button type="button" color="primary" (click)="askChatbot(userInput)">Ask</button>
+                <button mat-raised-button color="primary" (click)="saveChatHistory()">Save Chat</button>
             </div>
         </div>
 
