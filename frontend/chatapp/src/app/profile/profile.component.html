@@ -1,13 +1,38 @@
-<h2> Your Profile</h2>
 <div class="profile-container">
-    <div class="avatar-section">
-      <img class="avatar" src="path/to/dummy-image.jpg" alt="Profile Image">
-    </div>
-    
-    <div class="details-section">
-      <h2 class="username">{{ usernameFromLocalStorage }}</h2>
-      <p class="join-date">Joined on: {{ userData.userprofile.join_date | date:'MMMM dd, y' }}</p>
-    </div>
+  <div class="profile-header">
+    <img [src]="userData?.userprofile?.profile_picture" alt="Profile Image">
+    <h2 *ngIf="!isEditing">{{ userData?.username }}</h2>
+    <button (click)="editProfile()">{{ isEditing ? 'Save' : 'Edit Profile' }}</button>
   </div>
+
+  <ng-container *ngIf="!isEditing">
+    <div class="profile-details">
+      <h4>Email: {{ userData?.email }}</h4>
+      <h4>Joined on: {{ userData?.userprofile?.join_date | date:'MMMM dd, y' }}</h4>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isEditing">
+    <form [formGroup]="profileForm">
+      <div>
+        <label for="username">Username:</label>
+        <input id="username" type="text" formControlName="username">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email">
+      </div>
+      <div>
+        <label for="profile_picture">Profile Picture URL:</label>
+        <input id="profile_picture" type="text" formControlName="profile_picture">
+      </div>
+      <div>
+        <button type="submit" (click)="editProfile()">Save</button>
+      </div>
+    </form>
+  </ng-container>
   
-  
+</div>
+
+
+

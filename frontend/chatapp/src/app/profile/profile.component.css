@@ -1,42 +1,148 @@
 .profile-container {
-    display: flex;
-    align-items: center;
-    background: #f7f7f9;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-    max-width: 600px;
-    margin: 0 auto;
-  }
+  width: 60%;
+  height: 50%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   
-  .avatar-section {
-    flex: 0 0 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #007bff;
-  }
-  
-  .details-section {
-    flex: 1;
-    padding-left: 20px;
-  }
-  
-  .username {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .join-date {
-    color: #777;
-    font-size: 1rem;
-  }
-  
+}
+
+.profile-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-header button {
+  justify-content: center;
+  margin: auto;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-style: oblique;
+}
+
+.profile-header button:hover {
+  background-color: #0056b3;
+}
+
+.profile-details{
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.profile-form {
+  position: fixed;
+  top: 50px;
+  left: 30%;
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+
+/* Overall Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f7f7f7;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Input Styling */
+input[type="text"], input[type="email"] {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Label Styling */
+label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+/* Button Styling */
+button {
+  padding: 0.7rem 1.5rem;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:focus {
+  outline: none;
+}

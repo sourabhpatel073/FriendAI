@@ -45,7 +45,6 @@ export class AuthService {
       console.log(response)
       localStorage.setItem('userId', response['user_id'].toString());
       localStorage.setItem('token', response['token'].toString());
-      localStorage.setItem('token', response['user'].toString());
        
       this._isUserAuthenticated.next(true);
       this.router.navigate(['/home'])

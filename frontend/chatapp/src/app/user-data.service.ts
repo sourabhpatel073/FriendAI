@@ -11,7 +11,12 @@ export class UserDataService {
 
   constructor(private http: HttpClient) { }
 
-  getUserProfile(userId: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/get_profile/${userId}/`);
+  getUserProfile(userprofile_id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/get_profile/${userprofile_id}/`);
+  }
+
+  updateUserProfile(userData: any): Observable<any> {
+    const userId = userData.id;
+    return this.http.patch<any>(`${this.baseUrl}/user/edit/${userId}/`, userData);
   }
 }
