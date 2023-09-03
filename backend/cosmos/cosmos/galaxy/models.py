@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+    profile_picture = models.URLField(max_length=500, null=True, blank=True)
     join_date = models.DateTimeField(auto_now_add=True)
 
 
-from django.db import models
 
 class UserChatHistory(models.Model):
     user_id = models.CharField(max_length=255)

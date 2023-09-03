@@ -16,7 +16,7 @@ class UserChatHistorySerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = [ 'join_date']
+        fields = [ 'join_date', "profile_picture"]
 
 class UserSerializer(serializers.ModelSerializer):
     userprofile = UserProfileSerializer()
@@ -30,6 +30,28 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create(**validated_data)
         UserProfile.objects.create(user=user, **profile_data)
         return user
+
+    def update(self, instance, validated_data):
+        # Handle the nested UserProfile
+        profile_data = validated_data.pop('userprofile')
+        profile_instance = instance.userprofile
+
+        # Update user instance
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.save()
+
+        # Update user profile instance
+        profile_instance.join_date = profile_data.get('join_date', profile_instance.join_date)
+        
+        # Here's the modification to handle profile_pic
+        profile_instance.profile_picture = profile_data.get('profile_picture', profile_instance.profile_picture)
+
+        profile_instance.save()
+
+        return instance
+
+
 
 class ChatSerializer(serializers.ModelSerializer):
     class Meta:

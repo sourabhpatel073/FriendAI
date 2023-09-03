@@ -92,6 +92,7 @@ def upload_pdfs(request):
         return JsonResponse({"status": "success", "message": "PDFs processed successfully.","data":x["scripttext"],"pdfname":x["pdfname"],"pdfsize":x["pdfsize"]})
     return JsonResponse({"status": "error", "message": "Only POST requests are accepted."})
 
+
 @csrf_exempt
 def ask_question(request):
     if request.method == "POST":
@@ -135,12 +136,12 @@ def login_user(request):
 
         # Checking if the email exists in the database
         user_profile = UserProfile.objects.get(user__email=email)
-        user_id = user_profile.user.id
-        username=user_profile.username
+        user_id = user_profile.id
+        
         if user_profile:
             # Return a success response if the email exists
             
-            return JsonResponse({"message": "Email found in database!","token":101, "user_id": user_id,"user":username}, status=200)
+            return JsonResponse({"message": "Email found in database!","token":101, "user_id": user_id,}, status=200)
         else:
             # Return a failure response if the email does not exist
             return JsonResponse({"message": "Email not found!"}, status=404)
@@ -155,24 +156,28 @@ def login_user(request):
 @api_view(['GET'])
 def get_profile(request, user_id):
     try:
-        user = User.objects.get(User, id=user_id)
+        user =user = User.objects.get(id=user_id)
         serializer = UserSerializer(user)
         return Response(serializer.data)
     
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     
-@api_view(['PUT'])
-def edit_user_profile(request):
+@api_view(['PATCH'])
+def edit_user_profile(request, user_id):
     try:
-        user = User.objects.get(username=request.user.username)
-        serializer = UserSerializer(instance=user, data=request.data)
+        user = User.objects.get(id=user_id)
+        serializer = UserSerializer(user, data=request.data)
+        
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
+
 
 @api_view(['DELETE'])
 def delete_user_profile(request):
