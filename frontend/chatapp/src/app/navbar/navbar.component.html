@@ -7,20 +7,21 @@
 
   <!-- Links for larger screens -->
   <div *ngIf="isLargeScreen">
+    <button mat-button routerLink='general'>Random Chat</button>
+    <button mat-button routerLink='image'>Generate Image</button>
+    <button mat-button routerLink='chats'>History</button>
       <button mat-button routerLink="/login">Login</button>
-      <button mat-button routerLink="/signup">Signup</button>
-      <button mat-button routerLink='chats'>History</button>
       <button mat-button routerLink="/profile">Profile</button>
   </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container" *ngIf="!isLargeScreen">
   <mat-sidenav #sidenav [mode]="isLargeScreen ? 'side' : 'over'" [opened]="isLargeScreen">
-
-      <button mat-button routerLink="/login" (click)="sidenav.close()">Login</button>
-      <button mat-button routerLink="/signup" (click)="sidenav.close()">Signup</button>
-      <button mat-button routerLink='chats' (click)="sidenav.close()">History</button>
-      <button mat-button routerLink="/profile" (click)="sidenav.close()">Profile</button>
+    <button mat-button routerLink='general'>Random Chat</button>
+    <button mat-button routerLink='image'>Generate Image</button>
+    <button mat-button routerLink='chats'>History</button>
+      <button mat-button routerLink="/login">Login</button>
+      <button mat-button routerLink="/profile">Profile</button>
   </mat-sidenav>
   
   <mat-sidenav-content>

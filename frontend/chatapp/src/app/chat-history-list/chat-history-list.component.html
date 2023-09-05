@@ -1,4 +1,6 @@
+
 <div *ngIf="selectedChat" class="overlay">
+  
   <div class="detail-view">
     <h3>Details for User ID: {{ selectedChat.user_id }}</h3>
     <div *ngFor="let message of selectedChat.messages" 

@@ -11,7 +11,7 @@
       <h4>Joined on: {{ userData?.userprofile?.join_date | date:'MMMM dd, y' }}</h4>
     </div>
   </ng-container>
-
+<button (click)="logout()">LOGOUT</button>
   <ng-container *ngIf="isEditing">
     <form [formGroup]="profileForm">
       <div>

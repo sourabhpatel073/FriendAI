@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserDataService } from '../user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -12,7 +13,7 @@ export class ProfileComponent implements OnInit {
   userData: any;
   isEditing: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private userDataService: UserDataService) {}
+  constructor(private formBuilder: FormBuilder, private userDataService: UserDataService, private router: Router) {}
 
   ngOnInit() {
     this.fetchUserData();
@@ -61,4 +62,9 @@ export class ProfileComponent implements OnInit {
     }
   }
   
+  logout(){
+    localStorage.removeItem('token');
+    localStorage.removeItem("userId");
+    this.router.navigate(['/home'])
+  }
 }

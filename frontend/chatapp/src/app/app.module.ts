@@ -25,7 +25,9 @@ import { ChatDetailsComponent } from './chat-details/chat-details.component';
 import { ChatDataService } from './chat-data.service';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { GeneralChatComponent } from './general-chat/general-chat.component';
+import { ImageGeneratorComponent } from './image-generator/image-generator.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ChatHistoryListComponent,
     ChatDetailsComponent,
     ChatDetailsComponent,
+    GeneralChatComponent,
+    ImageGeneratorComponent,
+    
     
   ],
   imports: [
@@ -59,7 +64,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSidenavModule
   ],
-  providers: [ChatDataService],
-  bootstrap: [AppComponent]
+  providers: [ChatDataService,AuthGuard],
+  bootstrap: [AppComponent],
+
+
 })
 export class AppModule { }

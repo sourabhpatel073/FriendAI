@@ -1,0 +1,21 @@
+<h3>Generate Images by description </h3>
+<div class="image-generator">
+    <!-- Left Section -->
+    <div class="left-section">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="description" placeholder="Enter image description"></textarea>
+        <button (click)="generateImage()">Generate Image</button>
+    </div>
+  
+    <!-- Right Section -->
+    <div class="right-section">
+        
+        <div class="loading-section" *ngIf="isLoading">
+            <!-- You can use a CSS spinner, an image or simply a message -->
+            Loading...
+        </div>
+        <div class="image-display" *ngIf="generatedImageUrl">
+            <img [src]="generatedImageUrl" alt="Generated Image" />
+        </div>
+    </div>
+</div>

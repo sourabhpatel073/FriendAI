@@ -1,0 +1,43 @@
+<h3 style="text-align: center;">Let's have some Random chat of your topic or content</h3>
+<div class="container">
+    <!-- Input & Instructions Section -->
+    <div class="input-section">
+        <textarea [(ngModel)]="context" placeholder="Enter Context"></textarea>
+
+        <label>Tone:</label>
+        <select [(ngModel)]="tone">
+            <option value="parent">Parent</option>
+            <option value="professional">Professional</option>
+            <option value="friend">Friend</option>
+        </select>
+
+        <label>Language:</label>
+        <select [(ngModel)]="language">
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="tamil">Tamil</option>
+            <option value="hinglish">Hinglish</option>
+            <option value="marathi">Marathi</option>
+        </select>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chat-container">
+        <div class="messages">
+            <div *ngFor="let message of chatMessages">
+                <strong style="color: aliceblue;">{{ message.sender }}</strong>
+                <div [class]="message.sender">
+                    {{ message.content }}
+                </div>
+            </div>
+            <div *ngIf="isTyping" class="typing-indicator" >
+                Assistant is typing...
+            </div>
+                        
+
+        <div class="chat-input-area">
+            <input [(ngModel)]="question" placeholder="Ask a Question" />
+            <button (click)="sendMessage()">Ask</button>
+        </div>
+    </div>
+</div>

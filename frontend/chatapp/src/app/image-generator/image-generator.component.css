@@ -1,0 +1,53 @@
+.image-generator {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    min-height: 450px;
+}
+
+.left-section {
+    flex: 1;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+}
+
+.right-section {
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.image-display img {
+    max-width: 80%;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+.right-section{
+    background-color: rgba(120, 86, 41, 0.745);
+    border-radius: 10px;
+    border: 5px solid rgb(47, 44, 44);
+    margin-left: 2%;
+}
+
+h3{
+    margin-left: 40%;
+}
