@@ -10,12 +10,12 @@ export class ChatbotService {
   askQuestion(query: string) {
     const formData = new FormData();
     formData.append('question', query);
-    return this.http.post('http://localhost:8000/galaxy/ask_question/', formData);
+    return this.http.post('https://friendai.onrender.com/galaxy/ask_question/', formData);
   }
 
   // chatbot.service.ts
 saveChatToBackend(chatData: any, userId: string) {
-  const apiUrl = "http://localhost:8000/galaxy/chat/create/";  // Replace with your API endpoint URL
+  const apiUrl = "https://friendai.onrender.com/galaxy/chat/create/";  // Replace with your API endpoint URL
   const headers = new HttpHeaders({
       'Content-Type': 'application/json'
   });

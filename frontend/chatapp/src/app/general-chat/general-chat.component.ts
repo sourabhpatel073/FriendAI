@@ -35,7 +35,7 @@ export class GeneralChatComponent {
           language: this.language
       };
       this.isTyping = true; 
-      this.http.post<ApiResponse>('http://localhost:8000/galaxy/ask/', data).subscribe(response => {
+      this.http.post<ApiResponse>('https://friendai.onrender.com/galaxy/ask/', data).subscribe(response => {
           this.chatMessages.push({
               sender: 'user',
               content: this.question

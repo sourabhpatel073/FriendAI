@@ -12,7 +12,7 @@ export class ImageGeneratorComponent {
   constructor(private http: HttpClient) {}
 
   generateImage() {
-    const apiUrl = 'http://localhost:8000/galaxy/generate-image/';
+    const apiUrl = 'https://friendai.onrender.com/galaxy/generate-image/';
     const body = { "prompt": this.description };
     this.isLoading = true;
     this.http.post<any>(apiUrl, body).subscribe(response => {

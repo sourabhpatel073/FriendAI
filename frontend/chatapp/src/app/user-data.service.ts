@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserDataService {
 
-  private readonly baseUrl = 'http://localhost:8000/galaxy';
+  private readonly baseUrl = 'https://friendai.onrender.com/galaxy';
 
   constructor(private http: HttpClient) { }
 

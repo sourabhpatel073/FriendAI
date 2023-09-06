@@ -22,6 +22,7 @@
                 <mat-list>
                     <mat-list-item *ngFor="let pdf of selectedPDFs">
                         {{ pdf.name }}
+                        
                         <button mat-icon-button color="warn" (click)="removeSelectedPDF(pdf)">
                             <mat-icon>delete</mat-icon>
                         </button>

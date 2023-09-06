@@ -4,6 +4,7 @@
     width: 70% !important;
 }
 
+
 .container {
     padding: 2rem;
     background-color: rgba(237, 232, 241, 0.237);
@@ -21,7 +22,8 @@
 }
 
 .pdf-section {
-    margin-bottom: 2rem; /* Add space between sections for mobile */
+    margin-bottom: 2rem; 
+    max-width: 25%;
 }
 
 .chat-container {

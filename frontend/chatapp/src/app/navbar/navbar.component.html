@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <a routerLink="/home" class="logo"><img width="100px" style="border-radius: 50px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaJS6t825JDkJpQs-Thu_PBjyAKVJmlu1n7g&usqp=CAU"></a>
+  <a routerLink="general" class="logo"><img width="100px" style="border-radius: 50px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaJS6t825JDkJpQs-Thu_PBjyAKVJmlu1n7g&usqp=CAU"></a>
   <span class="spacer"></span>
   
   <!-- Hamburger icon for mobile screens -->
@@ -7,7 +7,7 @@
 
   <!-- Links for larger screens -->
   <div *ngIf="isLargeScreen">
-    <button mat-button routerLink='general'>Random Chat</button>
+    <button mat-button routerLink='/home'>Pdf Chat</button>
     <button mat-button routerLink='image'>Generate Image</button>
     <button mat-button routerLink='chats'>History</button>
       <button mat-button routerLink="/login">Login</button>
@@ -17,7 +17,7 @@
 
 <mat-sidenav-container class="sidenav-container" *ngIf="!isLargeScreen">
   <mat-sidenav #sidenav [mode]="isLargeScreen ? 'side' : 'over'" [opened]="isLargeScreen">
-    <button mat-button routerLink='general'>Random Chat</button>
+    <button mat-button routerLink='/home'>Pdf Chat</button>
     <button mat-button routerLink='image'>Generate Image</button>
     <button mat-button routerLink='chats'>History</button>
       <button mat-button routerLink="/login">Login</button>

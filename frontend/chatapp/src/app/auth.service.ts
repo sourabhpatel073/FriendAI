@@ -24,7 +24,7 @@ export class AuthService {
 
   signup(username: string, email: string, password: string): void {
     // Modify the URL as per your backend endpoint
-    const url = 'http://localhost:8000/galaxy/user_register/';
+    const url = 'https://friendai.onrender.com/galaxy/user_register/';
     const body = { username, email, password ,userprofile:{}    };
 
     this.http.post(url, body).subscribe(response => {
@@ -38,7 +38,7 @@ export class AuthService {
 
   login(email: string, password: string): void {
     // Modify the URL as per your backend endpoint
-    const url = 'http://localhost:8000/galaxy/user_login/';
+    const url = 'https://friendai.onrender.com/galaxy/user_login/';
     const body = { email, password };
 
     this.http.post<LoginResponse>(url, body).subscribe(response => {

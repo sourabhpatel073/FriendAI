@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 
     // Replace with your API endpoint
     const dialogRef = this.dialog.open(LoadingDialogComponent);
-    fetch("http://127.0.0.1:8000/galaxy/upload_pdfs/", {
+    fetch("https://friendai.onrender.com/galaxy/upload_pdfs/", {
       method: 'POST',
       body: formData
     })
@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
 
   askChatbot(question: string): void {
     const dialogRef = this.dialog.open(LoadingDialogComponent);
-    const url = 'http://localhost:8000/galaxy/ask_question/';
+    const url = 'https://friendai.onrender.com/galaxy/ask_question/';
 
     // Format the body as x-www-form-urlencoded
     const body = new URLSearchParams();

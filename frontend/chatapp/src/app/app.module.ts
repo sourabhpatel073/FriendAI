@@ -21,13 +21,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoadingDialogComponent } from './loading-dialog/loading-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ChatHistoryListComponent } from './chat-history-list/chat-history-list.component';
-import { ChatDetailsComponent } from './chat-details/chat-details.component';
+
 import { ChatDataService } from './chat-data.service';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { GeneralChatComponent } from './general-chat/general-chat.component';
 import { ImageGeneratorComponent } from './image-generator/image-generator.component';
 import { AuthGuard } from './auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -40,10 +41,10 @@ import { AuthGuard } from './auth.guard';
     NavbarComponent,
     LoadingDialogComponent,
     ChatHistoryListComponent,
-    ChatDetailsComponent,
-    ChatDetailsComponent,
+  
     GeneralChatComponent,
     ImageGeneratorComponent,
+   
     
     
   ],
