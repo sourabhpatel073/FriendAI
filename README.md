@@ -1,6 +1,6 @@
 # FriendAI
 <h3>
-  Incorporating a blend of Angular, Django, Python, PostgreSQL, HTML, and CSS, Friend AI has been designed to provide a dynamic and user-centric experience. Through the integration of OpenAI's GPT functions, this project offers powerful AI-driven features tailored to enhance user interactions and bring clarity to complex documents.
+  Incorporating a blend of Angular, Django, Python, PostgreSQL, HTML, and CSS, Friend AI has been designed to provide a dynamic and user-centric experience. Through the integration of OpenAI's GPT functions,Prompts and Langchain this project offers powerful AI-driven features tailored to enhance user interactions and bring clarity to complex documents.
 </h3>
 Features
 <ul>
