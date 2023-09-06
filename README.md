@@ -24,7 +24,7 @@ Features
 </li>
 Tech Stack
 <ul>
-    <li><strong>Backend:</strong> Django. (Mention your Django endpoints here)</li>
+    <li><strong>Backend:</strong> Django. </li>
     <li><strong>Frontend:</strong> Angular integrated with HTML and CSS, ensuring a smooth and intuitive user interface.</li>
     <li><strong>Database:</strong> PostgreSQL, a robust solution for data storage and management.</li>
     <li><strong>AI Capabilities:</strong> Powered by OpenAI's GPT, with added support from Langchain for nuanced language processing.</li>
