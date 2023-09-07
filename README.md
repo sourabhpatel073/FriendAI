@@ -7,8 +7,6 @@
 </h3>
 Features
 
-![Screenshot 2023-09-06 225926](https://github.com/sourabhpatel073/FriendAI/assets/112695694/e947a720-a840-452c-bb60-2db12bb820a2)
-
 <ul>
     <li><strong>PDF Context Processing:</strong> Enables users to upload PDFs. Post upload, the system processes and establishes a context to enhance subsequent AI interactions.</li>
     <li><strong>AI-Powered Q&A:</strong> With the context set, users can raise queries pertaining to the uploaded PDF. The system leverages ChatGPT functions to deliver pinpoint answers.</li>
@@ -67,13 +65,17 @@ Endpoints:
 </ul>
 Frontend: Angular
 Integrated with HTML and CSS, ensuring a smooth and intuitive user interface.
-
-  ![Screenshot 2023-09-07 004446](https://github.com/sourabhpatel073/FriendAI/assets/112695694/9c996f32-913b-467c-8a28-fe30d7463505)
-
 Database: PostgreSQL
 A robust solution for data storage and management.
-![Screenshot 2023-09-06 225849](https://github.com/sourabhpatel073/FriendAI/assets/112695694/afe64639-99c5-48ee-a575-bd01d323fc66)
-
+              
 AI Capabilities:
 Powered by OpenAI's GPT, with added support from Langchain for nuanced language processing.
+
+![Screenshot 2023-09-07 015222](https://github.com/sourabhpatel073/FriendAI/assets/112695694/444f0d2a-6aaa-4c15-a98c-c6cff4927b39)
+
+
+![Screenshot 2023-09-06 225849](https://github.com/sourabhpatel073/FriendAI/assets/112695694/afe64639-99c5-48ee-a575-bd01d323fc66)
+
+
 ![Screenshot 2023-09-06 225959](https://github.com/sourabhpatel073/FriendAI/assets/112695694/2d0441e1-2db3-48ae-ae11-ac8e770a6e97)
+![Screenshot 2023-09-06 225926](https://github.com/sourabhpatel073/FriendAI/assets/112695694/e947a720-a840-452c-bb60-2db12bb820a2)
