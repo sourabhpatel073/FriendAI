@@ -1,10 +1,22 @@
 # FriendAI
-<h3>
-  Incorporating a blend of Angular, Django, Python, PostgreSQL, HTML, and CSS, Friend AI has been designed to provide a dynamic and user-centric experience. Through the integration of OpenAI's GPT functions,Prompts and Langchain this project offers powerful AI-driven features tailored to enhance user interactions a nd bring clarity to complex documents.
-  
+
+<h1 align="center">✨✨Welcome to FriendAI✨✨</h1>
+
+<br/>
+
+### Frontend Deployed URL 👉 [Click here](https://friendai.netlify.app/)
+
+### Backend API 👉 [Click here](https://friendai.onrender.com/)
+
+<br/>
+<h3 align="justify" width="80%">
+  Incorporating a blend of Angular, Django, Python, PostgreSQL, HTML, and CSS, Friend AI has been designed to provide a dynamic and user-centric experience. Through the integration of OpenAI's GPT functions,Prompts and Langchain this project offers powerful AI-driven features tailored to enhance user interactions and bring clarity to complex documents.
+  </h3>
+
+  ## Home Page
 ![Screenshot 2023-09-06 225326](https://github.com/sourabhpatel073/FriendAI/assets/112695694/09ea7365-8229-43d3-a82d-ba00f2718151)
 
-</h3>
+
 Features
 
 <ul>
@@ -71,11 +83,14 @@ A robust solution for data storage and management.
 AI Capabilities:
 Powered by OpenAI's GPT, with added support from Langchain for nuanced language processing.
 
+## chat with pdf
 ![Screenshot 2023-09-07 015222](https://github.com/sourabhpatel073/FriendAI/assets/112695694/444f0d2a-6aaa-4c15-a98c-c6cff4927b39)
 
-
+## Image Generation
 ![Screenshot 2023-09-06 225849](https://github.com/sourabhpatel073/FriendAI/assets/112695694/afe64639-99c5-48ee-a575-bd01d323fc66)
 
-
+## Login Page
 ![Screenshot 2023-09-06 225959](https://github.com/sourabhpatel073/FriendAI/assets/112695694/2d0441e1-2db3-48ae-ae11-ac8e770a6e97)
+
+## Profile Page
 ![Screenshot 2023-09-06 225926](https://github.com/sourabhpatel073/FriendAI/assets/112695694/e947a720-a840-452c-bb60-2db12bb820a2)
