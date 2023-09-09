@@ -4,9 +4,9 @@
 
 <br/>
 
-### Frontend Deployed URL 👉 [Click here](https://friendai.netlify.app/)
+###  Deployed URL 👉 [Click here](https://friendai.netlify.app/)
 
-### Backend API 👉 [Click here](https://friendai.onrender.com/)
+
 
 <br/>
 <h3 align="justify" width="80%">
